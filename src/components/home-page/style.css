@@ -1,0 +1,38 @@
+.main{
+    margin: 80px auto;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.topSection{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    height: 100px;
+    width: 100%;
+}
+
+.title{
+    font-size: 60px;
+}
+
+.img{
+    background-color: lightsalmon;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.description{
+    margin-top: 80px;
+    width: 100%;
+    text-align: center;
+    background-color: var(--content-bg-color);
+    border-radius: 10px;
+    padding: 50px 50px 30px 50px;
+    font-size: 22px;
+}
+
+.beginBtn{
+    margin-top: 40px;
+}
