@@ -1,6 +1,7 @@
 import './style.css';
 import Image from 'next/image';
 import img from '../../../public/images/stack-of-books.png';
+import Link from 'next/link';
 
 export default function HomePage(){
     return(
@@ -16,10 +17,10 @@ export default function HomePage(){
                 <h1 className='title'>Book Writer</h1>
             </section>
             <section className='description'>
-                <p>Este é um pequeno app feito para <br/>
+                <p className='text'>Este é um pequeno app feito para <br/>
                     desenvolver e armazenar histórias.
                 </p>
-                <button className='btn beginBtn'>Comece a escrever!</button>
+                <Link className='btn beginBtn' href="/login">Comece a escrever!</Link>
             </section>
         </main>
     )
