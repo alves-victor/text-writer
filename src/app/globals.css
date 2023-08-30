@@ -50,3 +50,7 @@ body{
 .btn:hover{
   background-color: rgb(206, 109, 71);
 }
+
+.link{
+  color: rgb(255, 183, 155);
+}
