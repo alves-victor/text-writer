@@ -20,7 +20,7 @@ export default function HomePage(){
                 <p className='text'>Este é um pequeno app feito para <br/>
                     desenvolver e armazenar histórias.
                 </p>
-                <Link className='btn beginBtn' href="/content">Comece a escrever!</Link>
+                <Link className='btn beginBtn' href="/writing">Comece a escrever!</Link>
             </section>
         </main>
     )
