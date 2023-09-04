@@ -6,7 +6,7 @@ import Link from 'next/link';
 export default function HomePage(){
     return(
         <main className="main">
-            <section className='topSection'>
+            <section className='top-section'>
                 <Image
                     className='img'
                     src={img}
