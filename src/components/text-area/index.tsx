@@ -12,50 +12,49 @@ declare global{
 export default function Text(){
     const [text, saveText] = useState("");
     let fileHandle: any;
+    const [fileName, saveFileName] = useState("");
 
     function handleChange(event: any){
         saveText(event.target.value);
     }
 
     let options = {
+        suggestedName: fileName,
         types: [{
             description: 'Apenas arquivos txt',
             accept: {
                 'text/*': ['.txt']
             }
         }],
-        excludeAcceptAllOption: true,
         multiple: false
     }
 
     async function chooseFile(){
         try{
             [fileHandle] = await window.showOpenFilePicker(options);
-        }catch{ return }
-        
+        }catch{ return }       
         let fileData = await fileHandle.getFile();
-        Object.assign(options, {suggestedName:fileData['name']} )
+        saveFileName(fileData.name);
         let textareaContent = await fileData.text();
         saveText(textareaContent);
     }
 
-    async function handleSave(){
+    async function saveFile(){
         let stream = await fileHandle.createWritable();
         await stream.write(text);
         await stream.close();
         alert("Arquivo Salvo!");
         fileHandle = "";
         saveText("");
-    }
+    }   
 
-    async function saveFile(){
+    async function handleSave(){
         try{
             fileHandle = await window.showSaveFilePicker(options);
-            handleSave();
         }catch{ return }
-
-
-    }   
+        saveFile();
+        saveFileName("");
+    }
 
     return(
         <main className="main">
@@ -64,7 +63,7 @@ export default function Text(){
             </section>
             <textarea onChange={handleChange} value={text} cols={30} rows={22} className="text-area" ></textarea>
             <section className='bottom-section'>
-                <button className='btn' onClick={saveFile}>Salvar</button>
+                <button className='btn' onClick={handleSave}>Salvar</button>
             </section>
         </main>
     )
