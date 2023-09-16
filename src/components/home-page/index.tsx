@@ -14,12 +14,10 @@ export default function HomePage(){
                     height={150}
                     width={170}
                 />
-                <h1 className='title'>Book Writer</h1>
+                <h1 className='title'>Text Editor</h1>
             </section>
             <section className='description'>
-                <p className='text'>Este é um pequeno app feito para <br/>
-                    desenvolver e armazenar histórias.
-                </p>
+                <p className='text'>Este é um pequeno app para escrever <br/>e editar arquivos de texto</p>
                 <Link className='btn beginBtn' href="/writing">Comece a escrever!</Link>
             </section>
         </main>
