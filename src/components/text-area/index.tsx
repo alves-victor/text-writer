@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import './style.css'
+import { isAbortError } from 'next/dist/server/pipe-readable';
 
 declare global{
     interface Window{
@@ -32,7 +33,14 @@ export default function Text(){
     async function chooseFile(){
         try{
             [fileHandle] = await window.showOpenFilePicker(options);
-        }catch{ return }       
+        }catch(error){
+            if(isAbortError(error)){
+                return
+            }else{
+                alert(error)
+                return
+            }
+        }       
         let fileData = await fileHandle.getFile();
         saveFileName(fileData.name);
         let textareaContent = await fileData.text();
@@ -51,7 +59,14 @@ export default function Text(){
     async function handleSave(){
         try{
             fileHandle = await window.showSaveFilePicker(options);
-        }catch{ return }
+        }catch(error){
+            if(isAbortError(error)){
+                return
+            }else{
+                alert(error)
+                return
+            }
+        }
         saveFile();
         saveFileName("");
     }
